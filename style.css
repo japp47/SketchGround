@@ -1,0 +1,262 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.options-cont {
+    height: 4rem;
+    width: 3.5rem;
+    background-color: #dfe4ea;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.tools-cont {
+    display: flex;
+    height: 5rem;
+    width: 55vw;
+    background-color: #f1f2f6;
+    justify-content: space-around;
+    position: absolute;
+    top: 2rem;
+    left: 25vw;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.scale-tools {
+    animation-name: scale-tools;
+    animation-duration: 1s;
+}
+@keyframes scale-tools {
+    0% {
+        transform: scale(0.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.tools-cont > * {
+    display: block;
+    width: 4rem;
+}
+.pencil-tool-cont {
+    background-color: #f1f2f6;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height: 5rem;
+    width: 8rem;
+    position: absolute;
+    top: 7rem;
+    left: 25vw;
+    border-radius: 3px;
+    display: none;
+}
+.pencil-width-cont {
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pencil-width-cont input {
+    width: 100%;
+}
+.pencil-color-cont {
+    height: calc( 100% - 2rem );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.pencil-color {
+    width: 1.5rem;
+    height: 2rem;
+    border-radius: 50%;
+}
+.black {
+    background-color: black;
+}
+.red {
+    background-color: red;
+}
+.blue {
+    background-color: blue;
+}
+.eraser-tool-cont {
+    height: 2rem;
+    width: 7rem;
+    background-color: #f1f2f6;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: none;
+    position: absolute;
+    top: 7rem;
+    left: 33vw;
+}
+.eraser-width-cont {
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.eraser-width-cont input {
+    width: 100%;
+}
+
+.sticky-cont {
+    height: 15rem;
+    width: 15rem;
+    position: absolute;
+    top: 15rem;
+    left: 10rem;
+    z-index: 1000;
+}
+.header-cont {
+    height: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #f1f2f6;
+}
+.header-cont > * {
+    height: 1.3rem;
+    width: 1.3rem;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+}
+.minimize {
+    background-color: #2ed573;
+}
+.remove {
+    background-color: #ff4757;
+}
+.note-cont {
+    height: calc( 100% - 2rem );
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.resize-handle {
+    width: 20px;
+    height: 20px;
+    background-color: gray;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: nwse-resize;
+}
+textarea {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    resize: none;
+}
+img {
+    height: 100%;
+    width: 100%;
+}
+.toolbar {
+    display: flex; /* Initially hidden, will be shown when typing */
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.toolbar button, 
+.toolbar input {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toolbar button:hover, 
+.toolbar input:hover {
+    background-color: #e0e0e0;
+}
+
+.toolbar button:focus, 
+.toolbar input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.toolbar .bold, 
+.toolbar .italic, 
+.toolbar .underline,
+.toolbar .align-left, 
+.toolbar .align-center, 
+.toolbar .align-right {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.toolbar .bold {
+    font-weight: 700;
+    color: #333;
+}
+
+.toolbar .italic {
+    font-style: italic;
+    color: #333;
+}
+
+.toolbar .underline {
+    text-decoration: underline;
+    color: #333;
+}
+
+.toolbar .align-left::before {
+    content: "L";
+    font-size: 16px;
+}
+
+.toolbar .align-center::before {
+    content: "C";
+    font-size: 16px;
+}
+
+.toolbar .align-right::before {
+    content: "R";
+    font-size: 16px;
+}
+
+.toolbar input[type="color"] {
+    width: 40px;
+    height: 40px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.toolbar input[type="number"] {
+    width: 60px;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+}
