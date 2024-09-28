@@ -4,8 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon api/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon api/app.js",
+    "build": "npm run dev && npm run build-static",
+    "build-static": "cd public && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
